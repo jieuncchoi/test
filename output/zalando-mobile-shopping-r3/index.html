@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zalando shopping home</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="screen" aria-label="Zalando mobile shopping home">
+  <header class="header">
+    <img class="wordmark" src="assets/Zalando_Wordmark_Black_RGB.svg" alt="Zalando">
+    <nav class="actions" aria-label="Shopping tools">
+      <button type="button" aria-label="My Page"><img src="assets/avatar-01.svg" alt=""></button>
+      <button class="shopping-bag" type="button" aria-label="Shopping Bag, 1 item"><img src="assets/shopping-bag-01.svg" alt=""><span class="bag-count" aria-hidden="true">1</span></button>
+    </nav>
+  </header>
+  <section class="campaign" aria-labelledby="campaign-title">
+    <img class="campaign-photo" src="assets/campaign.jpg" alt="">
+    <h1 id="campaign-title"><span>Style on</span> <span>your way</span></h1>
+  </section>
+  <section class="best" aria-labelledby="best-title">
+    <h2 id="best-title">Best Seller</h2>
+    <div class="products">
+      <article><div class="product-image"><img src="assets/product-bag.png" alt="Cognac shoulder bag"><button class="wishlist" type="button" aria-label="Save shoulder bag" aria-pressed="true"><img src="assets/wishlist-heart-selected.svg" alt=""></button></div><h3>Classic Leather Shoulder Bag</h3><p class="price">€89.95</p></article>
+      <article><div class="product-image"><img src="assets/product-necklace.png" alt="Gold oval pendant necklace"><button class="wishlist" type="button" aria-label="Save pendant necklace" aria-pressed="false"><img src="assets/wishlist-heart.svg" alt=""></button></div><h3>Minimal Pendant Necklace</h3><p class="price">€39.95</p></article>
+      <article><div class="product-image"><img src="assets/product-knit.png" alt="Cream ribbed knit top"><button class="wishlist" type="button" aria-label="Save knit top" aria-pressed="false"><img src="assets/wishlist-heart.svg" alt=""></button></div><h3>Ribbed Knit Sweater</h3><p class="price">€69.95</p></article>
+    </div>
+  </section>
+</main>
+<script>
+for (const button of document.querySelectorAll('.wishlist')) {
+  button.addEventListener('click', () => {
+    const selected = button.getAttribute('aria-pressed') === 'false';
+    button.setAttribute('aria-pressed', String(selected));
+    button.querySelector('img').src = selected ? 'assets/wishlist-heart-selected.svg' : 'assets/wishlist-heart.svg';
+  });
+}
+</script>
+</body>
+</html>
