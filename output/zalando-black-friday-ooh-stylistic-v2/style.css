@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "Zalando Sans";
+  src: url("assets/ZalandoSans%5Bwdth%2Cwght%2Cslnt%5D.woff2") format("woff2");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+  font-display: block;
+}
+
+/* Working coordinates are one CSS pixel per finished millimetre. */
+@page { size: 600px 1800px; margin: 0; }
+body { margin: 0; }
+
+.banner {
+  --margin: 60px;
+  --gutter: 30px;
+  --cell-width: 97.5px;
+  --cell-height: calc((1800px - 2 * var(--margin) - 13 * var(--gutter)) / 14);
+  --row-step: calc(var(--cell-height) + var(--gutter));
+  --row-2: calc(var(--margin) + var(--row-step));
+  --row-3: calc(var(--margin) + 2 * var(--row-step));
+  --row-5: calc(var(--margin) + 4 * var(--row-step));
+
+  /* Equal weight: 6% of the short side and 2× wordmark x-height. */
+  --brand-width: 36px;
+  --brand-height: calc(var(--brand-width) * 740 / 703);
+  --word-width: calc(var(--brand-height) * 544 / (2 * 80.64));
+
+  position: relative;
+  width: 600px;
+  height: 1800px;
+  background: #000;
+  color: #fff;
+  font: 400 29px / 1.5 "Zalando Sans";
+  font-stretch: 112.5%;
+  font-synthesis: none;
+  text-align: left;
+  print-color-adjust: exact;
+}
+
+.wordmark, .brandmark, h1, .submessage, .artwork { position: absolute; }
+
+.wordmark {
+  top: calc(var(--margin) + var(--brand-height) / 2);
+  left: var(--margin);
+  width: var(--word-width);
+  transform: translateY(-50%);
+}
+
+.brandmark {
+  top: var(--margin);
+  right: var(--margin);
+  width: var(--brand-width);
+}
+
+h1 {
+  top: var(--row-2);
+  left: var(--margin);
+  margin: 0;
+  font-size: 78px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.submessage {
+  top: var(--row-3);
+  left: var(--margin);
+  margin: 0;
+}
+
+.submessage span { display: block; white-space: nowrap; }
+
+.artwork {
+  top: var(--row-5);
+  left: 0;
+  width: 100%;
+  height: auto;
+}
