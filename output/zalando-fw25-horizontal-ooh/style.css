@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Zalando Sans";
+  src: url("assets/ZalandoSans%5Bwdth%2Cwght%2Cslnt%5D.woff2") format("woff2");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+  font-display: block;
+}
+
+/* Design coordinates are at 1:10. One CSS pixel represents 10 mm at full size. */
+@page { size: 1800px 800px; margin: 0; }
+body { margin: 0; }
+
+.banner {
+  --margin: 24px;
+  --gutter: 12px;
+  --cell-width: calc((1800px - 2 * var(--margin) - 13 * var(--gutter)) / 14);
+  --cell-height: calc((800px - 2 * var(--margin) - 5 * var(--gutter)) / 6);
+  --row-step: calc(var(--cell-height) + var(--gutter));
+  --mark-width: 48px;
+  --mark-height: calc(var(--mark-width) * 740 / 703);
+  --word-width: calc(var(--mark-height) * 544 / (2 * 80.64));
+
+  position: relative;
+  width: 1800px;
+  height: 800px;
+  print-color-adjust: exact;
+}
+
+.campaign, .wordmark, .brandmark, h1 { position: absolute; }
+
+.campaign { inset: 0; width: 100%; height: 100%; }
+
+.wordmark {
+  left: var(--margin);
+  top: calc(var(--margin) + var(--mark-height) / 2);
+  width: var(--word-width);
+  transform: translateY(-50%);
+}
+
+.brandmark {
+  right: var(--margin);
+  top: var(--margin);
+  width: var(--mark-width);
+}
+
+h1 {
+  top: calc(var(--margin) + 2 * var(--row-step));
+  left: var(--margin);
+  margin: 0;
+  color: #000;
+  font: 400 152px / 1 "Zalando Sans";
+  font-stretch: 112.5%;
+  font-synthesis: none;
+  letter-spacing: -0.03em;
+  text-align: left;
+}
+
